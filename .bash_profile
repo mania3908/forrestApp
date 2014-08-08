@@ -1,0 +1,1 @@
+export PATH=${PATH}:/Users/macbookpro/Desktop/adt-bundle/sdk/platform-tools:/Users/macbookpro/Desktop/adt-bundle/sdk/tools

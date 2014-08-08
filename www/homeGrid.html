@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, target-densitydpi=device-dpi" />
+       
+        <link rel="stylesheet" type="text/css" href="css/home.css" />
+        <link rel="stylesheet" type="text/css" href="css/sideMenu.css" />
+        <link rel="stylesheet" href="./font/stylesheet.css" type="text/css" charset="utf-8" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Forrest App</title>
+        <script src='js/jquery/jquery-1.4.4.min.js'></script>
+        <script src='js/jquery/jquery-ui-1.8.2.min.js'></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("orientationchange",onOrientationChange, false);
+           
+           // getJsonDataGallery();
+        }
+        function onDeviceReady() {
+            // Now safe to use device APIs
+            console.log("device ready que le dicen");
+            getJsonDataGallery();
+        }
+        function onOrientationChange(e){
+        }
+        function myfun( parque ){
+            window.location.href = "./detail.html?idparque=" + parque;
+        }
+        function getJsonDataGallery(){
+            $.ajax({
+                url: "http://www.electronicvideogame.com/pnacionales/jsonServices/gallery.php",
+                type: "GET",
+                dataType: "json",
+                async:false,
+                 success: function( data, status ){
+                     JsonpCallback( data );
+                },
+                error: function () {
+                    ErrorFunction();
+                }
+            });
+        }
+        function JsonpCallback( json ){
+            /*
+            jQuery.each(json, function( i, val ) {
+                //console.log( "_____"+val.idparque );
+                jQuery.each( val.album, function( i2, val2 ) {
+                    if ( val2.portada == 1 ){
+                        //$( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\" style=\"background: url('"+val2.imagen+"') no-repeat center top;\"><span><p>"+val.nombreparque+"</p></span></div>" );
+                        $( '#photoGridContainerGrid' ).append( "<div class=\"cellPhotosGrid2\" ><img src=\"./img/grids/1.png\" onclick=\"myfun(" + val.idparque + ");\"/><span>"+val.nombreparque+"</span></div>" );
+                    }else{
+                        //$( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\" style=\"background: url('"+val2.imagen+"') no-repeat center top;\"></div>" );
+                      //  $( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\"></div>" );
+                    }
+                });
+            });
+            */
+        }
+        function ErrorFunction(){
+            
+        }
+        function showMenu(){
+            /*
+
+            var menuSide = document.getElementById( 'sideMenu' );
+             console.log(menuSide.style.display);
+            if ( menuSide.style.display == "none" ){
+                menuSide.style.display = "block";
+            }else{
+                menuSide.style.display = "none";
+            }
+            */
+            $( "#sideMenu" ).toggle();
+        }
+        function showCamPage(){
+            window.location.href = './camera.html'; 
+        }
+        function showCamDisp(){
+            window.location.href = './agenda.html'; 
+        }
+         function goHome(){
+            window.location.href = './home.html'; 
+        }
+        function goGrid(){
+            window.location.href = './homeGrid.html'; 
+        }
+
+
+        </script>
+    </head>
+    <body onload="onLoad()">  
+        <div id="page1">
+           <div id="UpSection">
+                <div id="btnLeftUp" onClick="showMenu();"></div>
+                <div id="logoUp"></div>
+           </div>
+           <div id="DownSection">
+                <div id="middleBtns">
+                    <div class="btnRadio" onClick="goHome();"><div id="photoSelect" ><a >Photos</a></div></div>
+                    <div class="btnRadio" onClick="goGrid();"><div id="gridSelect" class="shadoselectec"><a>Grid</a></div></div>  
+                </div>
+                <div id="photoGrid">
+                    <div id="photoGridContainerGrid" class="container2">
+                        
+                        <div class="cellPhotosGrid2" >
+                           <img src="./img/imagenesapp/1_thumb.jpg" onclick="myfun(1);"/>
+                           <span>Parque1</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                           <img src="./img/imagenesapp/7_thumb.jpg" onclick="myfun(2);" />
+                           <span>Parque2</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/imagenesapp/15_thumb.jpg"  onclick="myfun(3);"/>
+                           <span>Parque3</span>
+                        </div>
+                       
+                        <!--
+                        <div class="cellPhotosGrid2" >
+                           <img src="./img/grids/1.png" onclick="myfun();"/>
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                           <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="cellPhotosGrid2" >
+                            <img src="./img/grids/1.png" />
+                           <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <div id="sideMenu">
+                    <div id="op1" class="menOpciones" onClick="showCamPage();">Camera</div>
+                    <div id="op2" class="menOpciones" onClick="showCamDisp();">Agenda</div>
+                </div>
+            </div>    
+        </div>
+    </body>
+</html>
