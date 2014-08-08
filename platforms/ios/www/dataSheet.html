@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, target-densitydpi=device-dpi" />
+       
+        <link rel="stylesheet" type="text/css" href="css/detail.css" />
+        <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="./font/stylesheet.css" type="text/css" charset="utf-8" />
+
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Forrest App</title>
+        <script src='js/jquery/jquery-1.4.4.min.js'></script>
+        <script src='js/jquery/jquery-ui-1.8.2.min.js'></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("orientationchange",onOrientationChange, false);
+           // gettingVars();
+        }
+        function onDeviceReady() {
+            console.log("device ready que le dicen");
+            gettingVars();
+        }
+        function onOrientationChange(e){
+            console.log("orientationnn___"+window.width);
+        }
+        function goBack() {
+            //window.history.back()
+            window.location.href = './detail.html?idparque='+RetgettingVars(); 
+        }
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        function gettingVars(){
+            var idparque = getUrlVars()[ "idparque" ];
+            getJsonDataGallery( idparque );
+            changeurlLinks(RetgettingVars());
+        }
+        function RetgettingVars(){
+            var idparque = getUrlVars()[ "idparque" ];
+            return idparque;
+        }
+        function changeurlLinks(parque){
+            $('#link1').attr('href','./moreinfo.html?idparque='+parque)
+            $('#link2').attr('href','./map.html?idparque='+parque)
+            $('#link3').attr('href','./dataSheet.html?idparque='+parque)
+            $('#link4').attr('href','./services.html?idparque='+parque)
+        }
+        function getJsonDataGallery( parque ){
+            $.ajax({
+                url: "http://www.electronicvideogame.com/pnacionales/jsonServices/parqueInfo.php?idparque=" + parque,
+                type: "GET",
+                dataType: "json",
+                async:false,
+                 success: function( data, status ){
+                     JsonpCallback( data );
+                },
+                error: function () {
+                    ErrorFunction();
+                }
+            });
+        }
+        function JsonpCallback( json ){
+            jQuery.each(json, function( i, val ) {
+                jQuery.each( val.album, function( i2, val2 ) {
+                    //$( '#mySliderCont' ).append( "<div class=\"gallery-item\"><a href=\"./img/grids/1.png\"><img src=\"./img/grids/1.png\" alt=\"img\" /></a></div>" );    
+                });
+                /*$( "#link1" ).attr( "href", "./moreinfo.html?idparque="+val.idparque );
+                $( "#link2" ).attr( "href", "./map.html?idparque="+val.idparque );
+                $( "#link3" ).attr( "href", "./dataSheet.html?idparque="+val.idparque );
+                $( "#link4" ).attr( "href", "./services.html?idparque="+val.idparque );*/
+                    
+                $( '#sheeAcDataACTUAL' ).html( val.altura ); 
+                $( '#sheeAcData1ACTUAL' ).html( val.extencion ); 
+                $( '#sheeAcData2ACTUAL' ).html( val.temperatura ); 
+                $( '#sheeAcData3ACTUAL' ).html( val.fecha ); 
+            });
+        }
+        </script>
+    </head>
+    <body onload="onLoad()">
+            
+        <div id="page2">
+           <div id="UpSection">
+                <div id="btnLeftUp" onClick="goBack();"></div>
+                <div id="logoUp"></div>
+           </div>
+           <div id="DownSection">
+                <div id="MidFooter">
+                    <div id="footerBtns">
+                        <div class="btnRadio btnLeft ">
+                            <div id="photoSelect"><a id="link1" href="./moreinfo.html">More Information</a></div>
+                        </div>
+                        <div class="btnRadio btnCnter ">
+                            <div id="gridSelect"><a id="link2" href="./map.html">Map</a></div>
+                        </div>
+                        <div class="btnRadio btnCnter selectBtn">
+                            <div id="photoSelect"><a id="link3" href="./dataSheet.html">Datasheet</a></div>
+                        </div>
+                        <div class="btnRadio btnRight">
+                            <div id="gridSelect"><a id="link4" href="./services.html">Services</a></div>
+                        </div>
+                    </div>
+                    <div id="content">
+                        <div id="datasheetContent">
+                            <div id="logoSUp" ></div>
+                            <div id="sheetDownCont">
+                                <div id="datashetCLeft">
+                                    <div class="leftDataSheetDownData">
+                                        <div id="minilOGO" >
+                                        </div>
+                                        <div id="sheeAcData" class="dataTx">
+                                            <h3>ALTURA</h3>
+                                            <h4 id="sheeAcDataACTUAL">MSNN</h4>
+                                        </div>
+                                    </div>
+                                    <div class="leftDataSheetDownData">
+                                        <div id="minilOGO1" >
+                                             
+                                        </div>
+                                        <div id="sheeAcData1" class="dataTx">
+                                            <h3>EXTENCION</h3>
+                                            <h4 id="sheeAcData1ACTUAL">45000 HECTAREAS</h4>
+                                        </div>
+                                    </div>
+                                    <div class="leftDataSheetDownData">
+                                        <div id="minilOGO2" >
+                                             
+                                        </div>
+                                        <div id="sheeAcData2" class="dataTx">
+                                            <h3>TEMPERATURA</h3>
+                                            <h4 id="sheeAcData2ACTUAL">16 CLIMA FRIO - PARAMO</h4>
+                                        </div>
+                                    </div>
+                                    <div class="leftDataSheetDownData">
+                                        <div id="minilOGO3" >
+                                             
+                                        </div>
+                                        <div id="sheeAcData3" class="dataTx">
+                                            <h3>FECHA DE CREACION</h3>
+                                            <h4 id="sheeAcData3ACTUAL">1977</h4>
+                                        </div>
+                                    </div>
+                            </div>
+                             <div id="datashetCRight">
+                                <div id="rightSheetData"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+           </div>
+    </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, target-densitydpi=device-dpi" />
+       
+        <link rel="stylesheet" type="text/css" href="css/home.css" />
+        <link rel="stylesheet" type="text/css" href="css/sideMenu.css" />
+
+        <link rel="stylesheet" href="./font/stylesheet.css" type="text/css" charset="utf-8" />
+
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Forrest App</title>
+
+        <script src='js/jquery/jquery-1.4.4.min.js'></script>
+        <!--<script src="js/jquery/jquery.mobile-1.4.3.js"></script>
+        <script src='js/jquery/jquery-ui-1.8.2.min.js'></script>-->
+        <script type="text/javascript" src="cordova.js"></script>
+       
+        <script type="text/javascript" charset="utf-8">
+        function onLoad() {
+            document.addEventListener( "deviceready", onDeviceReady, false );
+            // document.addEventListener( "orientationchange",onOrientationChange, false );
+            // getJsonDataGallery();
+        }
+         
+        function onDeviceReady() {
+            // Now safe to use device APIs
+            console.log( "device ready que le dicen" );
+           // getJsonDataGallery();
+        }
+        function onOrientationChange(e){
+             console.log( "orientationnn___" + window.width );
+        }
+        function showMenu(){
+            $( "#sideMenu" ).toggle();
+        }
+        function showCamPage(){
+            window.location.href = './camera.html'; 
+        }
+        function showCamDisp(){
+            window.location.href = './agenda.html'; 
+        }
+        function getJsonDataGallery(){
+            $.ajax({
+                url: "http://www.electronicvideogame.com/pnacionales/jsonServices/gallery.php",
+                type: "GET",
+                dataType: "json",
+                async:false,
+                 success: function( data, status ){
+                     JsonpCallback( data );
+                },
+                error: function () {
+                    ErrorFunction();
+                }
+            });
+        }
+        function JsonpCallback( json ){
+            /*
+            jQuery.each(json, function(i, val) {
+               
+                jQuery.each( val.album, function( i2, val2 ) {
+                   
+                    if ( val2.portada == 1 ){
+                        $( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\" style=\"background: url('./img/imagenesapp/"+ i2 +".jpg') no-repeat center top;\"><span><p>"+val.nombreparque+"</p></span></div>" );
+                       // $( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\" onclick=\"myfun("+val.idparque+");\"><span><p>" + val.nombreparque + "</p></span></div>" );
+                    }else{
+                        $( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\" style=\"background: url('./img/imagenesapp/"+i2+".jpg') no-repeat center top;\"></div>" );
+                       // $( '#photoGridContainer' ).append( "<div class=\"cellPhotosGrid\"></div>" );
+                    }
+                });
+            });
+*/
+        }
+        function ErrorFunction(){
+            
+        }
+        function myfun( parque ){
+            window.location.href = "./detail.html?idparque=" + parque;
+        }
+        
+         function goHome(){
+            window.location.href = './home.html'; 
+        }
+        function goGrid(){
+            window.location.href = './homeGrid.html'; 
+        }
+        </script>
+
+    </head>
+    <body onload="onLoad()">
+        <div id="page1">
+           <div id="UpSection">
+                <div id="btnLeftUp" onClick="showMenu();"></div>
+                <div id="logoUp"></div>
+           </div>
+           <div id="DownSection">
+                <div id="middleBtns">
+                    <div class="btnRadio" onClick="goHome();"><div id="photoSelect" class="shadoselectec"><a>Photos</a></div></div>
+                    <div class="btnRadio" onClick="goGrid();"><div id="gridSelect" ><a>Grid</a></div></div>  
+                </div>
+                <div id="photoGrid">
+                    <div id="photoGridContainer" class="container">
+                        <div id="cell1" class="cellPhotosGrid" onCLick="myfun(1);">
+                            <img src="./img/imagenesapp/1_thumb.jpg" />
+                            <span><p>Parque1</p></span>
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/2_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/3_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/4_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/5_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/6_thumb.jpg" />
+                        </div>
+
+                        <div id="cell1" class="cellPhotosGrid" onCLick="myfun(2);">
+                            <img src="./img/imagenesapp/7_thumb.jpg" />
+                            <span><p>Parque2</p></span>
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/8_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/9_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/10_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/11_thumb.jpg" />
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/12_thumb.jpg" />
+                        </div>
+                         <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/13_thumb.jpg" />
+                        </div>
+
+                          <div id="cell1" class="cellPhotosGrid" onCLick="myfun(3);">
+                            <img src="./img/imagenesapp/14_thumb.jpg" />
+                            <span><p>Parque3</p></span>
+                        </div>
+                        <div class="cellPhotosGrid" >
+                            <img src="./img/imagenesapp/15_thumb.jpg" />
+                        </div>
+                        <!--
+                        <div id="cell1" class="cellPhotosGrid" style="background: url('./img/imagenesapp/1_thumb.jpg') no-repeat center top;background-size: 140px 100px ;" onCLick="myfun(1);"><span><p>Parque1</p></span></div>
+
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/2_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/3_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/4_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/5_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/6_thumb.jpg') no-repeat center top;background-size: 140px 100px "></div>
+
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/7_thumb.jpg') no-repeat center top;background-size: 140px 100px ;" onclick="myfun(2);"><span><p>Parque2</p></span></div>
+
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/8_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/9_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/10_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/11_thumb.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/12_thumb.jpg') no-repeat center top;background-size: 140px 100px "></div>
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/13_thumb.jpg') no-repeat center top;background-size: 140px 100px "></div>
+
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/14.jpg') no-repeat center top;background-size: 140px 100px ;" onclick="myfun(3);"><span><p>Parque3</p></span></div>
+
+                        <div class="cellPhotosGrid" style="background: url('./img/imagenesapp/15.jpg') no-repeat center top;background-size: 140px 100px ;"></div>
+                        -->
+
+
+
+
+
+
+                        <!--
+                        <div class="cellPhotosDouble"></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"><span><p>22222Lorem ipsum dolor sit amet 55555 gggg 3444444</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosDouble"></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosDouble"></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosDouble"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid specialCell"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosDouble"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid specialCell"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        <div class="cellPhotosGrid"><span><p>Lorem ipsum dolor sit amet</p></span></div>
+                        <div class="cellPhotosGrid"></div>
+                        -->
+                    </div>
+                </div>
+                <div id="sideMenu">
+                    <div id="op1" class="menOpciones" onClick="showCamPage();">Camera</div>
+                    <div id="op2" class="menOpciones" onClick="showCamDisp();">Agenda</div>
+                </div>
+            </div>
+        </div>
+<script>
+ //  $("#btnRadio1").on("tap",function(){
+   //         $(this).hide();
+     //     });
+   
+</script>
+
+        
+    </body>
+</html>

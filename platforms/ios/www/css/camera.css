@@ -1,0 +1,252 @@
+*{
+	margin: 0px;
+	padding: 0px
+}
+body{
+	background: url('../img/camera/back.png') repeat left top;
+	width: 100%;
+	height: 100%;
+}
+#page2{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	
+}
+#UpSection{
+	width: 100%;
+	height: 100px;
+	
+	position: relative;
+	float: left;
+	background-image: url('../img/camera/top.png');
+	background-size: 100% 100px;
+	z-index: 2;
+}
+#DownSection{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+#btnLeftUp{
+	position: relative;
+	float: left;
+	background-image: url('../img/detail/backBtn.png');
+	background-size: 80px 30px;
+	width: 80px;
+	height: 30px;
+	top:30px;
+	left: 15px;
+}
+#logoUp{
+	width: 150px;
+	height: 45px;
+	margin: auto;
+	background-image: url('../img/logo2.png');
+	background-size: 200px 40px;
+	width: 200px;
+	height: 40px;
+	margin-top: 22px;
+}
+#content{
+	width: 90%;
+	height: 70%;
+	margin: auto;
+	padding-top: 100px
+}
+#content img{
+	width: 100%;
+	height: 95%;
+	margin: auto;
+	margin-top: 30px;
+}
+#btnCamera{
+	width: 90px;
+	height: 90px;
+	background-image: url('../img/camera/camera.png');
+	background-size: 90px 90px;
+	position:absolute;
+	bottom:20px;
+	margin-left: 400px;
+}
+#barraShare{
+	width: 100%;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.2);
+	position: relative;
+	float: left;
+	top: -50px;
+	color: white;
+	font-family: 'edmundsbury_serifregular';
+}
+#shareTxt{
+	margin-top: 10px;
+	margin-left: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	width: 200px;
+	position: relative;
+	float: left;
+	font-family: 'edmundsbury_serifregular';
+}
+/* iPhone < 5 and retina display */
+@media screen and (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+	#logoUp{
+		background-size: 170px 40px;
+		width: 170px;
+		height: 40px;
+		margin-top: 12px;
+	}
+	#btnLeftUp{
+		background-size: 70px 25px;
+		width: 70px;
+		height: 25px;
+		top:25px;
+	}
+	#DownSection{
+		position: relative;
+		float:left;
+	}
+	#content{
+		width: 90%;
+		height: 78%;
+		padding-top: 0px
+	}
+	#content img{
+		margin-top: 0px;
+	}
+	#btnCamera{
+		z-index: 2;
+		top: -50px;
+		position:relative;
+		width: 50px;
+		height: 50px;
+		margin: auto;
+		background-size: 50px 50px;
+	}
+}
+/* iPhone 5 and retina display*/
+@media screen and (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+	#logoUp{
+		background-size: 170px 40px;
+		width: 170px;
+		height: 40px;
+		margin-top: 12px;
+	}
+	#btnLeftUp{
+		background-size: 70px 25px;
+		width: 70px;
+		height: 25px;
+		top:25px;
+	}
+	#DownSection{
+		position: relative;
+		float:left;
+	}
+	#content{
+		width: 90%;
+		height: 78%;
+		padding-top: 0px
+	}
+	#content img{
+		margin-top: 0px;
+	}
+	#btnCamera{
+		z-index: 2;
+		top: -50px;
+		position:relative;
+		width: 50px;
+		height: 50px;
+		margin: auto;
+	}
+}
+/* iPhone < 5 and retina display */
+@media screen and (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation : landscape){
+	#logoUp{
+		background-size: 170px 40px;
+		width: 170px;
+		height: 40px;
+		margin-top: 12px;
+	}
+	#UpSection{
+		height: 80px;
+		background-size: 100% 80px;
+	}
+	#btnLeftUp{
+		background-size: 70px 25px;
+		width: 70px;
+		height: 25px;
+		top:25px;
+	}
+	#DownSection{
+		position: relative;
+		float:left;
+	}
+	#content{
+		width: 90%;
+		height: 78%;
+		padding-top: 0px
+	}
+	#content img{
+		margin-top: 0px;
+	}
+	#btnCamera{
+		z-index: 2;
+		top: -50px;
+		position:relative;
+		width: 50px;
+		height: 50px;
+		margin: auto;
+		background-size: 50px 50px;
+	}
+}
+/* iPhone < 5 and retina display */
+@media screen and (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation : landscape){
+	#logoUp{
+		background-size: 170px 40px;
+		width: 170px;
+		height: 40px;
+		margin-top: 12px;
+	}
+	#UpSection{
+		height: 80px;
+		background-size: 100% 80px;
+	}
+	#btnLeftUp{
+		background-size: 70px 25px;
+		width: 70px;
+		height: 25px;
+		top:25px;
+	}
+	#btnCamera{
+		z-index: 2;
+		top: -50px;
+		position:relative;
+		width: 50px;
+		height: 50px;
+		margin: auto;
+		background-size: 50px 50px;
+	}
+	#DownSection{
+		position: relative;
+		float:left;
+	}
+	#content{
+		width: 90%;
+		height: 78%;
+		padding-top: 0px
+	}
+	#content img{
+		margin-top: 0px;
+	}
+}
+
+/* iPad: portrait */
+@media screen and (aspect-ratio: 768/716) and (device-aspect-ratio: 768/1024), screen and (aspect-ratio: 768/1024) and (device-aspect-ratio: 768/1024) {
+
+}
+/* iPad: landscape */
+@media screen and (aspect-ratio: 1024/372) and (device-aspect-ratio: 768/1024), screen and (aspect-ratio: 1024/768) and (device-aspect-ratio: 768/1024) {
+
+}
+

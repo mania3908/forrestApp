@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css"  href="css/style.css">
+        <link rel="stylesheet" type="text/css"  href="css/appStyles.css">
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Forrest App</title>
+        <script src='js/jquery/jquery-1.4.4.min.js'></script>
+        <script src='js/jquery/jquery-ui-1.8.2.min.js'></script>
+        <script type="text/javascript" src="cordova.js"></script>
+       <!-- <script src='js/slidetounlock.js'></script>-->
+        
+        <script type="text/javascript" charset="utf-8">
+        function onLoad() {
+            document.addEventListener( "deviceready", onDeviceReady, false );
+            document.addEventListener( "orientationchange",onOrientationChange, false );
+        }
+        function onDeviceReady() {
+            // Now safe to use device APIs
+            console.log("device ready que le dicen");
+        }
+        function onOrientationChange( e ){
+             console.log( "orientationnn___"+window.orientation );
+        }
+        </script>
+    </head>
+    <body onload="onLoad()">
+        <div id="page0">
+            <div id="topLockScreen">
+                  <div id="logoUp">
+                  </div>
+            </div>
+            <div id="downLockScreen">
+                 <div id="page-wrap">
+                    <div id="well">
+                        <h2><strong id="slider"></strong> <span>slide to unlock</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
